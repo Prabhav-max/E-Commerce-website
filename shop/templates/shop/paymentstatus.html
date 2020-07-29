@@ -1,0 +1,33 @@
+{% extends 'shop/basic.html' %}
+{% block title%} DigiCart Tracker{% endblock %}
+{% block body %}
+<div class="container">
+
+    <div class="text-center my-4">
+
+        <h2>Payment status:</h2>
+        {% if response.RESPCODE == '01' %}
+        <div class="my-4">
+           <h3>ORDER SUCCESS</h3>
+           <h4>Order ID :{{response.ORDERID}}</h4>
+           <h4>Transaction ID :{{response.TXNID}}</h4>
+           <h4>Transaction Amount :{{response.TXNAMOUNT}}</h4>
+           <h4>Transaction Date :{{response.TXNDATE}}</h4>
+           <img src="/media/shop/images/Greentick.jpg" >
+        </div>
+        
+        {% else %}
+        <div class="my-4">
+            <h3>ORDER FAILURE</h3>
+            <img src="/media/shop/images/Redcross.jpg" >
+        </div>
+        {% endif%}
+
+    </div>
+
+</div>
+{% endblock %}
+{% block js %}
+<script>
+</script>
+{% endblock %}
